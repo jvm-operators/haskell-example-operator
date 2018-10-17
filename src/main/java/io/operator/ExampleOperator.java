@@ -3,7 +3,7 @@ package io.operator;
 import io.fabric8.kubernetes.api.model.KubernetesResourceList;
 import io.radanalytics.operator.common.AbstractOperator;
 import io.radanalytics.operator.common.Operator;
-import io.radanalytics.types.Example;
+import io.operator.types.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
