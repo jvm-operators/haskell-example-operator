@@ -1,13 +1,6 @@
 apiVersion: io.acme/v1
-kind: example
+kind: fibonacciinput
 metadata:
-  name: my-x
+  name: fourty-second-fib
 spec:
-  color: blue
-  memory: 128Mi
-  cpu: 0.5
-  env:
-  - name: FOO
-    value: bar
-  - name: PATH
-    value: /bin
+  input: 42
