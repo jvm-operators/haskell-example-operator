@@ -13,7 +13,8 @@ Very simple operator that calls Haskell code (from Groovy), prints the Nth Fibon
  
 The skeleton of the application is written in Groovy, because Frege currently doesn't support extending existing Java classes.
 However, the operator calls the haskell pure function in the `onAdd` method. For demonstration purposes we created very simple
-haskell code that calculates Nth fib number:
+haskell code that calculates the Nth fib number, it also demonstrates the lazy evaluation on infinite data structures called from
+a language that doesn't have such features:
 
 ```haskell
 module acme.Fibonacci where
