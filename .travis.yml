@@ -1,1 +1,5 @@
 language: groovy
+services:
+  - docker
+
+script: make build
