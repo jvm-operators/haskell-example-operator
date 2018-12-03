@@ -11,6 +11,23 @@ This operator uses [abstract-operator](https://github.com/jvm-operators/abstract
 Very simple operator that calls Haskell code (from Groovy), prints the Nth Fibonacci number to console and also creates
  a config map with the result. So it demonstrates the async workload in Kubernetes.
  
+The skeleton of the application is written in Groovy, because Frege currently doesn't support extending existing Java classes.
+However, the operator calls the haskell pure function in the `onAdd` method. For demonstration purposes we created very simple
+haskell code that calculates Nth fib number:
+
+```haskell
+module acme.Fibonacci where
+
+fibs a b = a : fibs b (a + b)
+fibonacci = fibs 0L 1L
+
+fib :: Long -> Long
+fib n = head $ drop (Long.int n) $ fibonacci
+
+```
+
+([source](./src/main/frege/Fibonacci.fr))
+ 
 ## Example
 
 ```bash
