@@ -80,13 +80,13 @@ make build
 
 Run the `haskell-example-operator` deployment:
 ```bash
-kubectl create -f manifest/operator.yaml
+kubectl apply -f manifest/operator.yaml
 ```
 
 Create new ConfigMap from the prepared example:
 
 ```bash
-kubectl create -f examples/cm.yaml
+kubectl apply -f examples/cm.yaml
 ```
 
 
@@ -96,13 +96,13 @@ For deployment on OpenShift use the same commands as above, but with `oc` instea
 This operator can also work with CRDs. Assuming the admin user is logged in, you can install the operator with:
 
 ```bash
-kubectl create -f manifest/operator-crd.yaml
+kubectl apply -f manifest/operator-crd.yaml
 ```
 
 and then create the Spark clusters by creating the custom resources (CR).
 
 ```bash
-kubectl create sparkcluster -f examples/cr.yaml
+kubectl apply -f examples/cr.yaml
 ```
 
 # Development
