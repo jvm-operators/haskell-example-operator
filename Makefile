@@ -5,7 +5,7 @@ build: package image-build
 
 .PHONY: package
 package:
-	./gradlew clean shadowJar
+	./gradlew clean build
 
 .PHONY: image-build
 image-build:
@@ -17,7 +17,7 @@ devel: build
 	oc cluster up
 	oc create -f manifest/operator.yaml
 	until [ "true" = "`oc get pod -l app.kubernetes.io/name=groovy-example-operator -o json 2> /dev/null | grep \"\\\"ready\\\": \" | sed -e 's;.*\(true\|false\),;\1;'`" ]; do printf "."; sleep 1; done
-	oc logs -f `oc get pods --no-headers -l app.kubernetes.io/name=groovy-example-operator | cut -f1 -d' '`
+	oc logs -f `oc get pods --no-headers -l app.kubernetes.io/name=haskell-example-operator | cut -f1 -d' '`
 
 .PHONY: devel-kubernetes
 devel-kubernetes:
@@ -26,4 +26,4 @@ devel-kubernetes:
 	eval `minikube docker-env` && $(MAKE) build
 	kubectl create -f manifest/operator.yaml
 	until [ "true" = "`kubectl get pod -l app.kubernetes.io/name=groovy-example-operator -o json 2> /dev/null | grep \"\\\"ready\\\": \" | sed -e 's;.*\(true\|false\),;\1;'`" ]; do printf "."; sleep 1; done
-	kubectl logs -f `kubectl get pods --no-headers -l app.kubernetes.io/name=groovy-example-operator | cut -f1 -d' '`
+	kubectl logs -f `kubectl get pods --no-headers -l app.kubernetes.io/name=haskell-example-operator | cut -f1 -d' '`
