@@ -1,0 +1,7 @@
+module acme.Fibonacci where
+
+fibs a b = a : fibs b (a + b)
+fibonacci = fibs 0L 1L
+
+fib :: Long -> Long
+fib n = head $ drop (Long.int n) $ fibonacci
