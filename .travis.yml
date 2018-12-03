@@ -1,1 +1,2 @@
 language: groovy
+script: gradle clean generateJavaSrcFromFregeSrc fatJar
