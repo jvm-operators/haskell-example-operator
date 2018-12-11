@@ -8,7 +8,7 @@
 This operator uses [abstract-operator](https://github.com/jvm-operators/abstract-operator) library.
 
 # Info
-Very simple operator that calls Haskell code (from Groovy), prints the Nth Fibonacci number to console and also creates
+Very simple operator that calls Haskell code (from Groovy), prints the Nth Fibonacci number (counting from zero) to console and also creates
  a config map with the result. So it demonstrates the async workload in Kubernetes.
  
 The skeleton of the application is written in Groovy, because Frege currently doesn't support extending existing Java classes.
