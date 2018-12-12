@@ -7,6 +7,7 @@ import io.operator.types.FibonacciInput
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import static acme.Fibonacci.fib
+import static examples.Brainfuck.main
 
 @Operator(forKind = FibonacciInput.class, prefix = "io.acme")
 class ExampleOperator extends AbstractOperator<FibonacciInput> {
@@ -21,6 +22,7 @@ class ExampleOperator extends AbstractOperator<FibonacciInput> {
         log.info("new input has been created: ${input}")
         def n = input.getInput()
         def result = fib(n)
+        main()
         println("the ${n}th fibonacci number is: ${result}")
         def resultCM = ConfigMapBuilder.newInstance().withNewMetadata().withName(input.getName() + "-result").endMetadata()
                 .withData(Collections.singletonMap("result", String.valueOf(result)))
