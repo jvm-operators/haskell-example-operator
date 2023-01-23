@@ -99,7 +99,7 @@ This operator can also work with CRDs. Assuming the admin user is logged in, you
 kubectl apply -f manifest/operator-crd.yaml
 ```
 
-and then create the Spark clusters by creating the custom resources (CR).
+and then get the fibonacci result by creating the custom resources (CR).
 
 ```bash
 kubectl apply -f examples/cr.yaml
